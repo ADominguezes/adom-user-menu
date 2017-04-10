@@ -18,9 +18,37 @@
         type: String,
         value: '',
         observer: '_showIconArrow'
+      },
+      iconClose: {
+        type: String,
+        value: '',
+        observer: '_showclose'
+      },
+      menu: {
+        type: Array,
+        value: function() {
+          return [];
+        }
+      },
+      user: {
+        type: Array,
+        value: function() {
+          return [];
+        }
+      },
+      userMenu: {
+        type: Boolean,
+        value: false,
+        reflectToAttribute: true
+      },
+      opened: {
+        type: Boolean,
+        value: false,
+        reflectToAttribute: true
       }
     },
     _clickArrow: function() {
+      this.userMenu = !this.userMenu;
       this.fire('user-menu-click-arrow');
     },
     _showIconArrow: function() {
@@ -28,6 +56,28 @@
       if(this.iconArrow === '') {
         arrow.hidden = true;
       }
+    },
+    _showclose: function() {
+      var close = this.$$('#close');
+      if(this.iconClose === '') {
+        close.hidden = true;
+      }
+    },
+    _open: function() {
+      this.opened = true;
+      this.fire('adom-user-menu-open');
+    },
+    _close: function() {
+      this.opened = false;
+      this.fire('adom-user-menu-close');
+    },
+    _userClick: function(e) {
+      var model = e.model;
+      this.fire('adom-user-menu-click-user', model.item.label);
+    },
+    _menuClick: function(e) {
+      var model = e.model;
+      this.fire('adom-user-menu-click-menu', model.item.label);
     }
 
   });

@@ -1,38 +1,74 @@
 :host([hidden]) {
   display: none;
 }
+:host([opened]) {
+  left: 0;
+}
 :host {
-  display: flex;
+  display: block;
   box-sizing: border-box;
   background-color: var(--adom-user-menu-bg-color, #fff);
   color: var(--adom-user-menu-color, #363737);
-  border-bottom: 1px solid var(--adom-user-menu-border-color, #363737);
-  padding:0.5em;
-  height: var(--adom-user-menu-height, 60px);
-  @apply(--adom-user-menu);
-  .image-user {
-    width: var(--adom-user-menu-image-user-width, 50px);
-    height: var(--adom-user-menu-image-user-height, 50px);
-  }
-  .name-user {
-    padding: 0 0.5em;
-    height: 50px;
-    line-height: 50px;
-    font-size: 1.2em;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-  .arrow-user {
-    height: 50px;
-    line-height: 50px;
-    white-space: nowrap;
-    button {
-      padding: 0.5em;
-      font-size: 1.2em;
-      background-color: transparent;
-      border: 0;
-      color: var(--adom-user-menu-arrow-button-color, #fff);
+  width: var(--adom-user-menu-width, 250px);
+  position: absolute;
+  top: 0;
+  left: -250px;
+  transition: 0.5s ease;
+  height: 100%;
+  z-index: 100;
+  .user {
+    padding: 0.5em;
+    display: flex;
+    &__close-user, &__arrow-user {
+      height: 50px;
+      line-height: 50px;
+      white-space: nowrap;
+      button {
+        padding: 0.5em;
+        font-size: 1.2em;
+        background-color: transparent;
+        border: 0;
+        color: var(--adom-user-menu-arrow-button-color, #363737);
+        cursor: pointer;
+      }
     }
+    &__image-user {
+      width: var(--adom-user-menu-image-user-width, 50px);
+      height: var(--adom-user-menu-image-user-height, 50px);
+    }
+    &__name-user {
+      padding: 0 0.5em;
+      height: 50px;
+      line-height: 50px;
+      font-size: 1.2em;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+  .sidebar, .user-config {
+    padding: 1em 0;
+    background-color: #fff;
+    button {
+      border: 0;
+      color: #363737;
+      background-color: transparent;
+      width: 100%;
+      padding: 1em;
+      text-align: left;
+      font-size: 1.2em;
+      line-height: 1.2em;
+      height: 1.2;
+      white-space: nowrap;
+      cursor: pointer;
+    }
+  }
+  .user-config {
+    display: none;
+  }
+}
+:host([user-menu]) {
+  .user-config {
+    display: block;
   }
 }

@@ -55,7 +55,52 @@
       </div>
       <demo-snippet>
         <template>
-          <adom-user-menu name="John" last-name="Doe" url-image="http://lorempixel.com/480/650/people/7/" icon-arrow="expand-more"></adom-user-menu>
+          <style>
+            button {
+              background-color: #3e3e3e;
+              border: none;
+              padding: 1em;
+              margin: 1em;
+              color: azure;
+              border-radius: 2px;
+              font-size: 1.2em;
+              cursor: pointer;
+            }
+          </style>
+          <adom-user-menu id="component0" name="John" last-name="Doe" url-image="http://lorempixel.com/480/650/people/7/" icon-arrow="expand-more" icon-close="close"></adom-user-menu>
+          <button onClick="tooglecomponent0()">
+            show
+          </button>
+          <script>
+            var component0 = document.querySelector('#component0');
+            component0.menu = [
+              {
+                icon: 'dashboard',
+                label: 'Dashboard'
+              },
+              {
+                icon: 'drafts',
+                label: 'Email'
+              },
+              {
+                icon: 'shopping-cart',
+                label: 'Ecommerce'
+              }
+            ]
+            component0.user = [
+              {
+                icon: 'account-circle',
+                label: 'User'
+              },
+              {
+                icon: 'settings',
+                label: 'Config'
+              }
+            ]
+            var tooglecomponent0 = function() {
+              component0.opened = true;
+            }
+          </script>
         </template>
       </demo-snippet>
     </div>

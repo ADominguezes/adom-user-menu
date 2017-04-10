@@ -13,16 +13,39 @@ A component description
 <dom-module id="adom-user-menu">
   <style include="adom-user-menu-styles adom-user-menu-shared-styles"></style>
   <template>
-    <div class="image-user">
-      <adom-media img-src="[[urlImage]]" width="50" height="50" circle></adom-media>
-    </div>
-    <div class="name-user">
-      [[name]] [[lastName]]
-    </div>
-    <div id="arrow" class="arrow-user">
-      <button on-tap="_clickArrow">
+    <div class="user">
+      <div id="close" class="user__close-user">
+        <button on-tap="_close">
+        <iron-icon icon="[[iconClose]]"></iron-icon>
+      </button>
+      </div>
+      <div class="user__image-user">
+        <adom-media img-src="[[urlImage]]" width="50" height="50" circle></adom-media>
+      </div>
+      <div class="user__name-user">
+        [[name]] [[lastName]]
+      </div>
+      <div id="arrow" class="user__arrow-user">
+        <button on-tap="_clickArrow">
         <iron-icon icon="[[iconArrow]]"></iron-icon>
       </button>
+      </div>
+    </div>
+    <div class="user-config">
+      <template is="dom-repeat" items="[[user]]">
+        <button on-tap="_userClick">
+          <iron-icon icon="[[item.icon]]"></iron-icon>
+          <span>[[item.label]]</span>
+        </button>
+      </template>
+    </div>
+    <div id="sidebar" class="sidebar">
+      <template is="dom-repeat" items="[[menu]]">
+        <button on-tap="_menuClick">
+          <iron-icon icon="[[item.icon]]"></iron-icon>
+          <span>[[item.label]]</span>
+        </button>
+      </template>
     </div>
 
   </template>
