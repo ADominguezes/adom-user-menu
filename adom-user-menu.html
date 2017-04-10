@@ -1,0 +1,30 @@
+<link rel="import" href="bower_components/polymer/polymer.html">
+<link rel="import" href="bower_components/adom-media/adom-media.html">
+<link rel="import" href="bower_components/iron-icon/iron-icon.html">
+<link rel="import" href="adom-user-menu-styles.html">
+
+<!--
+`adom-user-menu`
+A component description
+
+@demo demo/index.html 
+-->
+
+<dom-module id="adom-user-menu">
+  <style include="adom-user-menu-styles adom-user-menu-shared-styles"></style>
+  <template>
+    <div class="image-user">
+      <adom-media img-src="[[urlImage]]" width="50" height="50" circle></adom-media>
+    </div>
+    <div class="name-user">
+      [[name]] [[lastName]]
+    </div>
+    <div id="arrow" class="arrow-user">
+      <button on-tap="_clickArrow">
+        <iron-icon icon="[[iconArrow]]"></iron-icon>
+      </button>
+    </div>
+
+  </template>
+  <script src="adom-user-menu.js"></script>
+</dom-module>

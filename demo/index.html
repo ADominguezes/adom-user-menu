@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+  <title>adom-user-menu demo</title>
+
+  <script src="../bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+  <script>
+    window.Polymer = {
+      dom: 'shadow',
+      lazyRegister: 'true',
+      useNativeCSSProperties: 'true'
+    }
+  </script>
+
+  <link rel="import" href="../bower_components/iron-demo-helpers/demo-pages-shared-styles.html">
+  <link rel="import" href="../bower_components/iron-demo-helpers/demo-snippet.html">
+  <link rel="import" href="../bower_components/adom-demo/adom-demo.html">
+  <link rel="import" href="../adom-user-menu.html">
+
+  <style is="custom-style" include="demo-pages-shared-styles">
+    /*Common styles*/
+    
+    .component-info {
+      padding: 1em;
+    }
+    
+    .adom-user-menu {
+      color: #3e3e3e;
+    }
+    
+    .component-description {
+      color: #999;
+    }
+    
+    demo-snippet {
+      --demo-snippet-demo: {
+        display: block;
+      };
+    }
+  </style>
+</head>
+
+<body>
+  <adom-demo id="demo" option-selected="0">
+    <div>
+      <div class="component-info">
+        <h2 class="adom-user-menu">Basic adom-user-menu demo</h2>
+        <div class="component-description">
+          <p>Components description demo</p>
+        </div>
+      </div>
+      <demo-snippet>
+        <template>
+          <adom-user-menu name="John" last-name="Doe" url-image="http://lorempixel.com/480/650/people/7/" icon-arrow="expand-more"></adom-user-menu>
+        </template>
+      </demo-snippet>
+    </div>
+  </adom-demo>
+  <script>
+    var menu = [
+      { optionName: 'Basic' }
+    ];
+    var demo = document.getElementById('demo');
+    demo.optionsMenu = menu;
+  </script>
+</body>
+
+</html>

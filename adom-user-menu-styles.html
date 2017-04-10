@@ -1,0 +1,39 @@
+<dom-module id="adom-user-menu-styles"><template><style>
+:host([hidden]) {
+  display: none; }
+
+:host {
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  background-color: var(--adom-user-menu-bg-color, #fff);
+  color: var(--adom-user-menu-color, #363737);
+  border-bottom: 1px solid var(--adom-user-menu-border-color, #363737);
+  padding: 0.5em;
+  height: var(--adom-user-menu-height, 60px);
+  @apply (--adom-user-menu); }
+  :host .image-user {
+    width: var(--adom-user-menu-image-user-width, 50px);
+    height: var(--adom-user-menu-image-user-height, 50px); }
+  :host .name-user {
+    padding: 0 0.5em;
+    height: 50px;
+    line-height: 50px;
+    font-size: 1.2em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; }
+  :host .arrow-user {
+    height: 50px;
+    line-height: 50px;
+    white-space: nowrap; }
+    :host .arrow-user button {
+      padding: 0.5em;
+      font-size: 1.2em;
+      background-color: transparent;
+      border: 0;
+      color: var(--adom-user-menu-arrow-button-color, #fff); }
+
+</style>
+</template>
+</dom-module>
