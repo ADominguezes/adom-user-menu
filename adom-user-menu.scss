@@ -9,16 +9,20 @@
   box-sizing: border-box;
   background-color: var(--adom-user-menu-bg-color, #fff);
   color: var(--adom-user-menu-color, #363737);
-  width: var(--adom-user-menu-width, 250px);
+  width: var(--adom-user-menu-width, 280px);
   position: absolute;
   top: 0;
-  left: -250px;
+  left: -280px;
   transition: 0.5s ease;
   height: 100%;
   z-index: 100;
   .user {
     padding: 0.5em;
     display: flex;
+    height:var(--adom-user-menu-user-height, 60px);
+    box-sizing: border-box;
+    background: var(--adom-user-menu-user-bg-color, #fff);
+    z-index: 100;
     &__close-user, &__arrow-user {
       height: 50px;
       line-height: 50px;
@@ -47,11 +51,20 @@
     }
   }
   .sidebar, .user-config {
-    padding: 1em 0;
-    background-color: #fff;
+    background-color: var(--adom-user-menu-user-bg-color, #ededed);
+    &__menu {
+      position: absolute;
+      overflow: auto;
+      right: 0;
+      left: 0;
+      bottom: 0;
+      top: 60px;
+      box-sizing: border-box;
+      z-index: -1;
+    }
     button {
       border: 0;
-      color: #363737;
+      color: var(--adom-user-menu-user-button-color, #363737);
       background-color: transparent;
       width: 100%;
       padding: 1em;
@@ -62,13 +75,24 @@
       white-space: nowrap;
       cursor: pointer;
     }
+    button:focus, button:hover {
+      border-left: 4px solid #363737;
+    }
+    button.selected {
+      background-color: #363737;
+      color: white;
+    }
   }
   .user-config {
-    display: none;
+    background-color: var(--adom-user-menu-user-config-bg-color, #dedede);
+    transform: translateX(-280px);
+    transition: transform 0.5s ease;
+    z-index: -1;
   }
 }
 :host([user-menu]) {
   .user-config {
-    display: block;
+    transition: transform 0.5s ease;
+    transform: translateX(0px);
   }
 }

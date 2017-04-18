@@ -40,12 +40,14 @@ A component description
       </template>
     </div>
     <div id="sidebar" class="sidebar">
-      <template is="dom-repeat" items="[[menu]]">
-        <button on-tap="_menuClick">
+      <div class="sidebar__menu">
+        <template is="dom-repeat" items="[[menu]]">
+          <button on-tap="_menuClick">
           <iron-icon icon="[[item.icon]]"></iron-icon>
           <span>[[item.label]]</span>
         </button>
-      </template>
+        </template>
+      </div>
     </div>
 
   </template>

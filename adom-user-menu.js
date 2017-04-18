@@ -71,6 +71,10 @@
       this.opened = false;
       this.fire('adom-user-menu-close');
     },
+    _toogle: function() {
+      this.opened = !this.opened;
+      this.fire('adom-user-menu-toogle')
+    },
     _userClick: function(e) {
       var model = e.model;
       this.fire('adom-user-menu-click-user', model.item.label);
