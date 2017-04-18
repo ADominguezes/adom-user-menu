@@ -1,7 +1,7 @@
 {
   "name": "adom-user-menu",
   "version": "1.0.0",
-  "description": "A component description",
+  "description": "it´s a component that show a left sidebar and a user menu in top",
   "main": "adom-user-menu.html",
   "keywords": [],
   "ignore": [],
